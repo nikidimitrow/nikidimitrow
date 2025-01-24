@@ -1,3 +1,3 @@
 ### nikidimitrow - Nikolay Dimitrov
 
-I am embedded developer. Worked at Behr-Hella Thermocontrol Inc. Currently part of ADAS group of Continental Corporation Germany. I found my passion in low-level developing and how stuff work on bits and bytes.
+Just craft the garden you dream of for yourself. Let people enjoy it however they like as they pass by.
