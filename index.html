@@ -3,64 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikolay Dimitrov - CV</title>
+    <title>Nikolay Dimitrov - Web Developer CV</title>
     <style>
+        /* Color Palette based on your code */
+        :root {
+            --primary-color: #2A5C82;        /* Dark Blue */
+            --secondary-color: #4A90E2;      /* Light Blue */
+            --accent-color: #FF6B6B;         /* Red */
+            --text-color: #333;              /* Dark Gray for body text */
+            --light-bg: #f8f9fa;             /* Light Background for Sidebar */
+        }
+
         body {
-            font-family: sans-serif; /* A generic font */
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; /* Modern Font */
             line-height: 1.6;
-            margin: 20px;
+            margin: 0;  /* Remove default body margin */
+            color: var(--text-color);
+            background-color: #ffffff;
+        }
+
+        /* Container for the entire page */
+        .page-container {
+          max-width: 1200px; /* Limit width to prevent stretching */
+          margin: 40px auto; /* Center and add margin */
+          padding: 0 20px;
         }
 
         h1 {
-            font-size: 2em;
-            margin-bottom: 0.5em;
+            font-size: 2.5rem;
+            margin-bottom: 0.2em;
+            color: var(--text-color);
         }
 
         h2 {
-            font-size: 1.5em;
+            font-size: 1.6em;
             margin-top: 1em;
             margin-bottom: 0.5em;
-            border-bottom: 1px solid #ccc; /* Add a subtle line */
+            border-bottom: 3px solid var(--secondary-color); /* Blue Underline */
+            padding-bottom: 0.2em;
+            color: var(--primary-color);
         }
 
         h3 {
             font-size: 1.2em;
             margin-top: 0.8em;
             margin-bottom: 0.3em;
+            font-weight: bold;
+            color: var(--primary-color);
         }
 
         .contact-info {
             margin-bottom: 1em;
+            font-size: 1em;
+            color: #555;
         }
 
         .contact-info a {
             text-decoration: none;
+            color: var(--secondary-color); /* Use secondary color for links */
+            padding: 5px;           /* Increased click area */
+            border-radius: 3px;      /* Slight rounding */
+            transition: background-color 0.2s; /* Smooth hover */
+        }
+
+         .contact-info a:hover {
+          background-color: var(--light-bg);  /* Light hover */
         }
 
         .section {
-            margin-bottom: 1.5em;
+            margin-bottom: 2em;
         }
 
         .experience-item {
-            margin-bottom: 1em;
-        }
-
-        .experience-item h3 {
-            font-weight: bold;
+            margin-bottom: 1.5em;
         }
 
         .experience-item p.dates {
             font-style: italic;
-            color: #777;
+            color: #666; /* More subtle */
+            margin-bottom: 0.5em;
         }
 
         .experience-item ul {
             margin-top: 0.5em;
-            padding-left: 20px;
+            padding-left: 25px;
+            list-style-type: disc;
         }
 
         .experience-item li {
-            margin-bottom: 0.3em;
+            margin-bottom: 0.5em;
+            line-height: 1.4;
         }
 
         .skills-list {
@@ -69,194 +101,326 @@
         }
 
         .skills-list li {
-            margin-bottom: 0.3em;
+            margin-bottom: 0.5em;
         }
 
-        /* Side Bar */
+        /* Grid Layout */
+        .container {
+            display: grid;
+            grid-template-columns: 70% 30%; /* Main content 70%, Sidebar 30% */
+            grid-gap: 30px;                /* Increased gap for better spacing */
+        }
+
+         /* Side Bar */
         .side-bar {
-            width: 30%;
-            float: right;
-            padding: 20px;
-            border: 1px solid #eee;
+            padding: 25px;                /* Consistent Padding */
+            background: var(--light-bg);   /* Light background from your palette */
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Subtle shadow */
+            border-radius: 8px;          /* Rounded corners */
         }
 
-        .most-proud-of {
-            margin-bottom: 20px;
+        .most-proud-of,
+        .skills,
+        .languages,
+        .industry-expertise,
+        .strengths,
+        .my-life-philosophy {
+            margin-bottom: 2em;          /* Consistent spacing in the sidebar */
         }
 
-        .skills, .languages, .industry-expertise, .strengths {
-          margin-bottom: 20px;
+        .side-bar h2 {
+            font-size: 1.4em;
+            margin-bottom: 0.8em;
+            color: var(--primary-color); /* Dark Blue Heading */
+            border-bottom: 2px solid var(--secondary-color); /* Secondary Blue Underline */
+            padding-bottom: 0.2em;
+        }
+
+        .side-bar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .side-bar li {
+            margin-bottom: 0.5em;
+            line-height: 1.4;
+        }
+
+        /* Profile Picture */
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #ccc; /* Gray placeholder */
+            margin: 0 auto 15px;
+            overflow: hidden;
+            background-image: url('nikidimitrow.png');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+        }
+
+         /* Skill Tags (from your code) */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        /* Strength Items (from your code) */
+        .strength-item {
+            margin-bottom: 1.2em;
+        }
+
+        .strength-item b {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Language Progress (from your code) */
+        .language-progress p {
+            margin-bottom: 0.5em;
+        }
+
+        .language-progress progress {
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .side-bar {
+                width: 100%;
+            }
+
+            .page-container {
+                margin: 20px auto;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 12pt;
+                color: #000;
+            }
+            h1, h2, h3 {
+              color: #000 !important;
+            }
+            .side-bar {
+                display: none;
+            }
+            a {
+                color: #000 !important;
+                text-decoration: none !important;
+            }
+            a[href]:after {
+                content: " (" attr(href) ") ";
+            }
+            .experience-item {
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 10px;
+            }
+            .experience-item p.dates {
+              font-style: normal;
+              color: #000;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="page-container">
+        <header>
+            <h1>Nikolay Dimitrov</h1>
+            <p>Dedicated Embedded Software Developer</p>
 
-    <h1>Nikolay Dimitrov</h1>
-    <p>Dedicated Embedded Software Developer</p>
+            <div class="contact-info">
+                <a href="tel:+359-88-76-76-545">📱 +359-88-76-76-545</a>
+                <a href="mailto:nikidimitrow@gmail.com">✉️ nikidimitrow@gmail.com</a>
+                <a href="https://github.com/nikidimitrow">🔗 github.com/nikidimitrow</a>
+            </div>
+        </header>
 
-    <div class="contact-info">
-        <p>+359-88-76-76-545 | <a href="mailto:nikidimitrow@gmail.com">nikidimitrow@gmail.com</a> | <a href="https://github.com/nikidimitrow">github.com/nikidimitrow</a> | Sofia, BG</p>
+        <div class="container">
+            <div>  <!-- Main Content Area -->
+                <section class="section">
+                    <h2>Summary</h2>
+                    <p>Dynamic and seasoned Embedded Software Developer with over 8 years of experience in the automotive software industry. Proven track record of developing efficient and robust systems using AUTOSAR methodology. Deep understanding of software architecture, microcontroller programming, and system testing, gained from successfully leading multiple projects in a fast-paced, deadline-driven environment. Passionate about innovative technology solutions and known for injecting a spirit of fun and enthusiasm into the workplace. Committed to driving continuous improvement while maintaining high quality standards. Ready to leverage skills and experiences in a challenging role to bring automobile software solutions to new heights.</p>
+                </section>
+
+                <section class="section">
+                    <h2>Professional Experience</h2>
+
+                    <div class="experience-item">
+                        <h3>Sensified</h3>
+                        <p class="dates">02/2022 – Present, Bulgaria, Sofia</p>
+                        <p>At Sensified, we form a dynamic and highly professional team committed to embedded engineering consultancy. As a consultant, I thrive on adapting to diverse client requirements and consistently delivering results within tight deadlines. Currently, I am deeply engaged in two ASIL projects at Sensified: one categorized as ASIL-D and the other as ASIL-B.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Lead Software Engineer - External consultant (Sensified), Continental</h3>
+                        <p class="dates">02/2022 – Present, Germany, Ulm</p>
+                        <p>Integral member of the Advanced Driver Assistance Systems (ADAS) division, entrusted with primary responsibility for the safety cores of autopilot and parking assistance functionalities, exemplifying strong commitment to vehicular safety and innovation.</p>
+                        <ul>
+                            <li>Successfully spearheaded the initialization and integration of one of the most complex microcontrollers in the automotive market, demonstrating strong technical acumen and problem-solving skills.</li>
+                            <li>Successfully developed and delivered a software platform prototype instrumental for function development and client acquisition.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Software Engineer - External consultant (Sensified), BHTC</h3>
+                        <p class="dates">10/2022 – Present, Germany, Lippstadt</p>
+                        <p>Served as a key member of the Scana core team, undertaking primary responsibility for Functional Safety and End-to-End protection communication. Demonstrated expertise in the development and integration of project-specific components.</p>
+                        <ul>
+                            <li>Developed and integrated a pioneering Functional Safety mechanism within an AUTOSAR project, exhibiting strong technical acumen and innovative problem-solving skills.</li>
+                            <li>Accomplished the integration of End-to-End protection, meticulously incorporating the necessary components, demonstrating a detailed understanding of system requirements and performance objectives.</li>
+                            <li>Demonstrated the ability to effectively manage high-pressure situations and consistently meet deadlines.</li>
+                            <li>As a proactive member of the core team, provided extensive support for additional activities within the BHTC, showcasing adaptability, collaborative skills, and a commitment to the broader organizational goals.</li>
+                        </ul>
+                    </div>
+
+                     <div class="experience-item">
+                        <h3>Software Engineer - Internal Employee, BHTC</h3>
+                        <p class="dates">05/2021 – 02/2022, Bulgaria, Sofia</p>
+                        <p>Served as a vital member of the AUTOSAR division's basic team, responsible for spearheading project initiation and developing standard components in accordance with BHTC-specific requirements, demonstrating a thorough understanding of the project specifications and a commitment to quality.</p>
+                        <ul>
+                            <li>Successfully initiated and brought to fruition several projects, overseeing all stages from technical details, testing, to finalizing documentation.</li>
+                            <li>Served as a pivotal figure within the Basic Department of BHTC Bulgaria, consistently providing support and mentorship to new team members, demonstrating leadership, knowledge sharing, and a commitment to fostering a welcoming and productive work environment.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Software Engineer - Internal Employee, Hitachi</h3>
+                        <p class="dates">09/2021 - 05/2022, Bulgaria, Sofia</p>
+                        <p>Worked closely with Magna customers to successfully establish the initial framework platform of the gearbox, utilizing AUTOSAR methodology. This showcases my strong customer collaboration skills and ability to apply industry-standard approaches to achieve project objectives.</p>
+                        <ul>
+                            <li>Established the initial build environment utilizing CMake and Jenkins.</li>
+                            <li>Initial integrated the Basic stack for Autosar project</li>
+                            <li>Supported the integration of AUTOSAR generated components (.arxml) into Matlab and back</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Software Engineer - Internal Employee, BHTC</h3>
+                        <p class="dates">02/2017 - 09/2021, Bulgaria, Sofia</p>
+                        <p>Served as a key contributor in the development of Standard components for the SW-PP division, providing support for multiple projects across diverse areas</p>
+                        <ul>
+                            <li>Successfully integrated, configured, and tested AUTOSAR, non-AUTOSAR, and third-party software modules, in alignment with customer requirements and specific hardware needs.</li>
+                            <li>Proficient in the use of major software applications prevalent in the automotive industry, including IBM Doors and IBM Rhapsody, as well as Vector tools such as DaVinci Configurator, DaVinci Developer, CANoe, and Candela, underscoring my technical versatility and adaptability to industry-standard tools.</li>
+                            <li>Provided comprehensive support to colleagues across all BHTC locations, including China, Germany, and India, on a variety of topics and areas, showcasing effective cross-cultural communication, teamwork, and a commitment to fostering global collaboration.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Junior Embedded Software Engineer, Ansisoft Ltd.</h3>
+                        <p class="dates">01/2015 - 02/2017, Bulgaria, Sofia</p>
+                        <p>Successfully executed application development for the open-source electronic prototyping platform, Arduino.</p>
+                        <ul>
+                            <li>C programming on ARM Architecture;</li>
+                            <li>C# programming for application development.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>CEO and Co-founder, MMA Bulgaria</h3>
+                        <p class="dates">2011 - 2015, Bulgaria</p>
+                        <p>mma.bg - A website dedicated to providing information and resources about Mixed Martial Arts in Bulgaria. It serves as a hub for enthusiasts, athletes, and coaches by providing news, event updates, training resources, and an online community</p>
+                        <ul>
+                            <li>Served as the dynamic CEO of mma.bg, a startup focused on mixed martial arts with both an online presence and a physical store. Oversaw the entire spectrum of strategic decision-making, driving the company towards growth and success. In a multifaceted role in this small organization, demonstrated exceptional versatility from managing logistics and ordering production to developing software and orchestrating live events across Bulgaria, Greece, Serbia, and Romania. Demonstrated leadership, entrepreneurship, and commitment to building a robust business model in the niche market of mixed martial arts.</li>
+                        </ul>
+                    </div>
+
+                </section>
+
+                <section class="section">
+                    <h2>Education</h2>
+                    <div class="experience-item">
+                      <h3>Attempted PhD in Computer technology in engineering</h3>
+                      <p class="dates">2011 – Present, Bulgaria, Sofia</p>
+                      <p>University of Mining and Geology</p>
+                    </div>
+
+                    <div class="experience-item">
+                      <h3>Master degree of Information technology</h3>
+                      <p class="dates">2010 – 2011, Bulgaria, Sofia</p>
+                      <p>University of Mining and Geology</p>
+                    </div>
+
+                     <div class="experience-item">
+                      <h3>Bachelor of Automation, Information and Computer Science</h3>
+                      <p class="dates">2006 – 2009, Bulgaria, Sofia</p>
+                      <p>University of Mining and Geology</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="side-bar">  <!-- Sidebar Area -->
+               <div class="profile-picture">
+                  </div> <!-- Add your image here -->
+
+               <section class="most-proud-of sidebar-section">
+                    <h2>Most Proud Of</h2>
+                     <ul>
+                          <li>Marrying my wife and have two kids together</li>
+                          <li>Successfully established and managed a startup. Creating a company from 0 to 1 and leading 8-people team</li>
+                          <li>Becoming and autodidact I've never stopped teaching myself</li>
+                     </ul>
+                </section>
+
+                <section class="skills sidebar-section">
+                    <h2>Technical Skills</h2>
+                       <ul class="skill-tags">
+                            <li class="skill-tag">C/C++</li>
+                            <li class="skill-tag">AUTOSAR</li>
+                            <li class="skill-tag">ARM Architecture</li>
+                            <li class="skill-tag">CMake</li>
+                            <li class="skill-tag">Jenkins</li>
+                            <li class="skill-tag">CANoe</li>
+                            <!-- add others -->
+                       </ul>
+                </section>
+
+               <section class="strengths sidebar-section">
+                   <h2>Strengths</h2>
+                    <div class="strength-item">
+                         <b>🏅 Gold Medalist (BJJ)</b>
+                         <p>2011-2013 National Championships</p>
+                    </div>
+                    <div class="strength-item">
+                         <b>🚀 Startup Founder</b>
+                         <p>Built 8-person team from scratch</p>
+                    </div>
+                </section>
+
+                <section class="languages sidebar-section">
+                   <h2>Languages</h2>
+                   <div class="language-progress">
+                        <p>English 🇬🇧 <progress value="90" max="100"></progress></p>
+                        <p>Bulgarian 🇧🇬 <progress value="100" max="100"></progress></p>
+                   </div>
+                </section>
+
+               <section class="industry-expertise sidebar-section">
+                   <h2>Industry Expertise</h2>
+                    <ul>
+                         <li>Electrical and Electronic Measurements</li>
+                         <li>Prepares Technical Documentation</li>
+                         <li>Practical Experience in the field of Electronics</li>
+                     </ul>
+                </section>
+            </div>
+        </div>
     </div>
-
-    <section class="section">
-        <h2>Summary</h2>
-        <p>Dynamic and seasoned Embedded Software Developer with over 8 years of experience in the automotive software industry. Proven track record of developing efficient and robust systems using AUTOSAR methodology. Deep understanding of software architecture, microcontroller programming, and system testing, gained from successfully leading multiple projects in a fast-paced, deadline-driven environment. Passionate about innovative technology solutions and known for injecting a spirit of fun and enthusiasm into the workplace. Committed to driving continuous improvement while maintaining high quality standards. Ready to leverage skills and experiences in a challenging role to bring automobile software solutions to new heights.</p>
-    </section>
-
-    <section class="section">
-        <h2>Professional Experience</h2>
-
-        <div class="experience-item">
-            <h3>RILABS</h3>
-            <p class="dates">02/2022 – Present, Bulgaria, Sofia</p>
-            <p>At Rilabs, we form a dynamic and highly professional team committed to embedded engineering consultancy. As a consultant, I thrive on adapting to diverse client requirements and consistently delivering results within tight deadlines. Currently, I am deeply engaged in two ASIL projects at Rilabs: one categorized as ASIL-D and the other as ASIL-B.</p>
-        </div>
-
-        <div class="experience-item">
-            <h3>Lead Software Engineer - External consultant (Rilabs), Continental</h3>
-            <p class="dates">02/2022 – Present, Germany, Ulm</p>
-            <p>Integral member of the Advanced Driver Assistance Systems (ADAS) division, entrusted with primary responsibility for the safety cores of autopilot and parking assistance functionalities, exemplifying strong commitment to vehicular safety and innovation.</p>
-            <ul>
-                <li>Successfully spearheaded the initialization and integration of one of the most complex microcontrollers in the automotive market, demonstrating strong technical acumen and problem-solving skills.</li>
-                <li>Successfully developed and delivered a software platform prototype instrumental for function development and client acquisition.</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <h3>Software Engineer - External consultant (Rilabs), BHTC</h3>
-            <p class="dates">10/2022 – Present, Germany, Lippstadt</p>
-            <p>Served as a key member of the Scana core team, undertaking primary responsibility for Functional Safety and End-to-End protection communication. Demonstrated expertise in the development and integration of project-specific components.</p>
-            <ul>
-                <li>Developed and integrated a pioneering Functional Safety mechanism within an AUTOSAR project, exhibiting strong technical acumen and innovative problem-solving skills.</li>
-                <li>Accomplished the integration of End-to-End protection, meticulously incorporating the necessary components, demonstrating a detailed understanding of system requirements and performance objectives.</li>
-                <li>Demonstrated the ability to effectively manage high-pressure situations and consistently meet deadlines.</li>
-                <li>As a proactive member of the core team, provided extensive support for additional activities within the BHTC, showcasing adaptability, collaborative skills, and a commitment to the broader organizational goals.</li>
-            </ul>
-        </div>
-
-         <div class="experience-item">
-            <h3>Software Engineer - Internal Employee, BHTC</h3>
-            <p class="dates">05/2021 – 02/2022, Bulgaria, Sofia</p>
-            <p>Served as a vital member of the AUTOSAR division's basic team, responsible for spearheading project initiation and developing standard components in accordance with BHTC-specific requirements, demonstrating a thorough understanding of the project specifications and a commitment to quality.</p>
-            <ul>
-                <li>Successfully initiated and brought to fruition several projects, overseeing all stages from technical details, testing, to finalizing documentation.</li>
-                <li>Served as a pivotal figure within the Basic Department of BHTC Bulgaria, consistently providing support and mentorship to new team members, demonstrating leadership, knowledge sharing, and a commitment to fostering a welcoming and productive work environment.</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <h3>Software Engineer - Internal Employee, Hitachi</h3>
-            <p class="dates">09/2021 - 05/2022, Bulgaria, Sofia</p>
-            <p>Worked closely with Magna customers to successfully establish the initial framework platform of the gearbox, utilizing AUTOSAR methodology. This showcases my strong customer collaboration skills and ability to apply industry-standard approaches to achieve project objectives.</p>
-            <ul>
-                <li>Established the initial build environment utilizing CMake and Jenkins.</li>
-                <li>Initial integrated the Basic stack for Autosar project</li>
-                <li>Supported the integration of AUTOSAR generated components (.arxml) into Matlab and back</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <h3>Software Engineer - Internal Employee, BHTC</h3>
-            <p class="dates">02/2017 - 09/2021, Bulgaria, Sofia</p>
-            <p>Served as a key contributor in the development of Standard components for the SW-PP division, providing support for multiple projects across diverse areas</p>
-            <ul>
-                <li>Successfully integrated, configured, and tested AUTOSAR, non-AUTOSAR, and third-party software modules, in alignment with customer requirements and specific hardware needs.</li>
-                <li>Proficient in the use of major software applications prevalent in the automotive industry, including IBM Doors and IBM Rhapsody, as well as Vector tools such as DaVinci Configurator, DaVinci Developer, CANoe, and Candela, underscoring my technical versatility and adaptability to industry-standard tools.</li>
-                <li>Provided comprehensive support to colleagues across all BHTC locations, including China, Germany, and India, on a variety of topics and areas, showcasing effective cross-cultural communication, teamwork, and a commitment to fostering global collaboration.</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <h3>Junior Embedded Software Engineer, Ansisoft Ltd.</h3>
-            <p class="dates">01/2015 - 02/2017, Bulgaria, Sofia</p>
-            <p>Successfully executed application development for the open-source electronic prototyping platform, Arduino.</p>
-            <ul>
-                <li>C programming on ARM Architecture;</li>
-                <li>C# programming for application development.</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <h3>CEO and Co-founder, MMA Bulgaria</h3>
-            <p class="dates">2011 - 2015, Bulgaria</p>
-            <p>mma.bg - A website dedicated to providing information and resources about Mixed Martial Arts in Bulgaria. It serves as a hub for enthusiasts, athletes, and coaches by providing news, event updates, training resources, and an online community</p>
-            <ul>
-                <li>Served as the dynamic CEO of mma.bg, a startup focused on mixed martial arts with both an online presence and a physical store. Oversaw the entire spectrum of strategic decision-making, driving the company towards growth and success. In a multifaceted role in this small organization, demonstrated exceptional versatility from managing logistics and ordering production to developing software and orchestrating live events across Bulgaria, Greece, Serbia, and Romania. Demonstrated leadership, entrepreneurship, and commitment to building a robust business model in the niche market of mixed martial arts.</li>
-            </ul>
-        </div>
-
-    </section>
-
-    <section class="section">
-        <h2>Education</h2>
-        <div class="experience-item">
-          <h3>Attempted PhD in Computer technology in engineering</h3>
-          <p class="dates">2011 – Present, Bulgaria, Sofia</p>
-          <p>University of Mining and Geology</p>
-        </div>
-
-        <div class="experience-item">
-          <h3>Master degree of Information technology</h3>
-          <p class="dates">2010 – 2011, Bulgaria, Sofia</p>
-          <p>University of Mining and Geology</p>
-        </div>
-
-         <div class="experience-item">
-          <h3>Bachelor of Automation, Information and Computer Science</h3>
-          <p class="dates">2006 – 2009, Bulgaria, Sofia</p>
-          <p>University of Mining and Geology</p>
-        </div>
-    </section>
-
-   <div class="side-bar">
-
-       <section class="most-proud-of">
-            <h2>Most Proud Of</h2>
-             <ul>
-                  <li>Marrying my wife and have two kids together</li>
-                  <li>Successfully established and managed a startup. Creating a company from 0 to 1 and leading 8-people team</li>
-                  <li>Becoming and autodidact I've never stopped teaching myself</li>
-             </ul>
-        </section>
-
-        <section class="skills">
-            <h2>Skills</h2>
-                <p><b>Programming language:</b></p>
-                <p>C C++ Python Assembler for ARM</p>
-                <p><b>Tools:</b></p>
-                <p>DaVinci Configurator</p>
-                <p>DaVinci Developer. CANoe</p>
-                <p>IBM Rhapsody</p>
-        </section>
-
-       <section class="strengths">
-           <h2>Strengths</h2>
-            <ul>
-                <li><b>Gold Medalist</b> <p>Was awarded a gold medal in several competition in BJJ (2011-2013)</p></li>
-                <li><b>Corporate Social Responsibility</b> <p>Injecting a spirit of fun and enthusiasm into the workplace</p></li>
-            </ul>
-        </section>
-
-        <section class="languages">
-           <h2>Languages</h2>
-            <p>English Proficient •••••</p>
-        </section>
-
-       <section class="industry-expertise">
-           <h2>Industry Expertise</h2>
-           <p>Electrical and Electronic Measurements</p>
-           <p>Prepares Technical Documentation</p>
-           <p>Practical Experience in the field of Electronics</p>
-        </section>
-
-        <section class="my-life-philosophy">
-           <h2>My Life Philosophy</h2>
-           <p>"The achievements of an organization are the results of the combined effort of each individual."
-           - Vince Lombardi</p>
-        </section>
-
-   </div>
-
-
 </body>
 </html>
