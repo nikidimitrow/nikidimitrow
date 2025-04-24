@@ -1,88 +1,72 @@
-import pdfkit
+# --- Prerequisites: ---
+# 1. pip install playwright
+# 2. playwright install chromium
+# --- ---
+
+import asyncio
+from playwright.async_api import async_playwright
 import os
 
 # --- Configuration ---
-html_file_path = 'index.html' # Make sure this file exists in the same folder
-pdf_file_path = 'nikolay_dimitrov_cv_styled.pdf' # New name to avoid overwriting
+html_file = 'index.html' # Assumes HTML is in the same directory
+pdf_file = 'nikolay_dimitrov_cv_flex_layout.pdf' # New output name
 
-path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+async def html_to_pdf_playwright(html_path, pdf_path):
+    # Ensure HTML path is absolute and uses file:/// scheme
+    absolute_html_path = 'file:///' + os.path.abspath(html_path).replace('\\', '/')
+    absolute_pdf_path = os.path.abspath(pdf_path)
 
-try:
-    config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
-    print(f"Using wkhtmltopdf configuration: {path_wkhtmltopdf}")
-except OSError:
-    print(f"Error: Could not find wkhtmltopdf executable at the specified path: {path_wkhtmltopdf}")
-    config = None
+    print("Starting Playwright...")
+    async with async_playwright() as p:
+        browser = None # Initialize browser variable
+        try:
+            # Launch Chromium (Playwright manages its download/location)
+            print("Launching browser...")
+            browser = await p.chromium.launch()
+            page = await browser.new_page()
+            print("Browser launched, new page created.")
 
-# --- Conversion ---
-if config:
-    print(f"Converting '{html_file_path}' to '{pdf_file_path}'...")
+            print(f"Navigating to: {absolute_html_path}")
+            # Navigate to the local HTML file - wait until content is loaded
+            await page.goto(absolute_html_path, wait_until='domcontentloaded')
+            print("Page loaded.")
 
-    # --- Adjusted Options ---
-    options = {
-        'page-size': 'A4',
-        'margin-top': '20mm',
-        'margin-right': '20mm',
-        'margin-bottom': '20mm',
-        'margin-left': '20mm',
-        'encoding': "UTF-8",
+            # --- Emulate screen media type before PDF generation ---
+            # This tries to ensure screen styles (like flexbox) are applied
+            await page.emulate_media(media="screen")
+            print("Emulating screen media.")
 
-        # --- Key Options for Styling/Images ---
-        'enable-local-file-access': None, # CRUCIAL: Allows access to nikidimitrow.png
-        # 'load-error-handling': 'ignore', # Try uncommenting this if you suspect minor loading errors break things
-        # 'load-media-error-handling': 'ignore', # Specific for media errors
-        '--enable-javascript': None,       # Enable JS if any dynamic styling depends on it (unlikely here)
-        '--javascript-delay': '1000',      # Give JS time to run (if enabled, milliseconds) - adjust if needed
-        '--no-stop-slow-scripts': None,    # Don't stop scripts that take time (if JS enabled)
-        '--enable-plugins': None,          # May be needed for some complex elements (rarely)
-        '--images': None,                  # Explicitly enable images (usually default)
-        '--enable-external-links': None,   # Allow linking to external resources (like Google Fonts)
+            # Give a brief moment for rendering adjustments after emulation
+            await asyncio.sleep(1.5)
 
-        # --- Try EITHER print OR screen styles ---
-        # Option 1: Use Print Styles (as defined in your @media print CSS)
-        '--print-media-type': None,
-
-        # Option 2: Force Screen Styles (Comment out --print-media-type above if using this)
-        # This is NOT a standard wkhtmltopdf option, but sometimes omitting --print-media-type defaults to screen.
-        # If Option 1 fails, try REMOVING the '--print-media-type': None line completely.
-
-        #'--debug-javascript': None,       # Uncomment to see JS console output (if JS enabled)
-        #'--disable-smart-shrinking': None # Can sometimes help with layout accuracy
-    }
-
-    try:
-        if not os.path.exists(html_file_path):
-             print(f"Error: HTML file not found at '{os.path.abspath(html_file_path)}'")
-        elif not os.path.exists(os.path.join(os.path.dirname(html_file_path), 'nikidimitrow.png')):
-            # Explicitly check if the image file exists where expected
-            print(f"Warning: Image file 'nikidimitrow.png' not found in the same directory as the HTML.")
-            print(f"Expected location: {os.path.abspath(os.path.join(os.path.dirname(html_file_path), 'nikidimitrow.png'))}")
-            # Proceed anyway, but PDF might lack the image
-            success = pdfkit.from_file(
-                 html_file_path,
-                 pdf_file_path,
-                 options=options,
-                 configuration=config
+            print(f"Generating PDF: {absolute_pdf_path}")
+            # Generate PDF using Playwright's method
+            await page.pdf(
+                path=absolute_pdf_path,
+                format='A4',
+                print_background=True, # Crucial for background colors
+                margin={ # Standard margins
+                    'top': '20mm',
+                    'right': '20mm',
+                    'bottom': '20mm',
+                    'left': '20mm'
+                }
+                # Playwright will use print styles by default here,
+                # but the flex layout is defined in the HTML's print styles now.
             )
-        else:
-            print("HTML and Image files seem accessible.")
-            success = pdfkit.from_file(
-                 html_file_path,
-                 pdf_file_path,
-                 options=options,
-                 configuration=config
-            )
+            print(f"PDF generated successfully: {absolute_pdf_path}")
+        except Exception as e:
+            print(f"An error occurred during Playwright PDF generation: {e}")
+        finally:
+            if browser:
+                await browser.close()
+                print("Browser closed.")
 
-        if success:
-            print(f"Conversion successful! PDF saved as '{os.path.abspath(pdf_file_path)}'")
-        else:
-            print("Conversion failed (pdfkit returned False). Check console for errors.")
-
-    except Exception as e:
-        print(f"An error occurred during conversion: {e}")
-        if 'ContentNotFoundError' in str(e) or 'Exit with code 1' in str(e):
-             print("This often indicates wkhtmltopdf had trouble loading resources (images, CSS, fonts) or executing.")
-             print("Verify paths and permissions. Try running wkhtmltopdf directly:")
-             print(f'"{path_wkhtmltopdf}" --enable-local-file-access "{os.path.abspath(html_file_path)}" test_manual.pdf')
+# --- Run the async function ---
+print(f"Attempting to convert '{html_file}' to '{pdf_file}' using Playwright...")
+# Check if HTML file exists before running
+if os.path.exists(html_file):
+    asyncio.run(html_to_pdf_playwright(html_file, pdf_file))
 else:
-    print("Cannot proceed with conversion due to invalid wkhtmltopdf configuration.")
+    print(f"Error: HTML file not found at '{os.path.abspath(html_file)}'")
+print("Script finished.")

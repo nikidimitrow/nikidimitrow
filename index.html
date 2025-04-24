@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- SEO & Accessibility Improvements -->
   <meta name="description" content="Nikolay Dimitrov - Automotive Systems Engineer specializing in system architecture, specification, and embedded software development using AUTOSAR.">
   <meta name="author" content="Nikolay Dimitrov">
-  <!-- Updated Title -->
   <title>Nikolay Dimitrov - Automotive Systems Engineer CV</title>
-  <!-- Google Fonts for improved typography -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Color Palette */
     :root {
-      --primary-color: #2A5C82;        /* Dark Blue */
-      --secondary-color: #4A90E2;      /* Light Blue */
-      --accent-color: #FF6B6B;         /* Red */
-      --text-color: #333;              /* Dark Gray */
-      --light-bg: #f8f9fa;             /* Light Background */
+      --primary-color: #2A5C82; /* Dark Blue */
+      --secondary-color: #4A90E2; /* Light Blue */
+      --accent-color: #FF6B6B; /* Red */
+      --text-color: #333; /* Dark Gray */
+      --light-bg: #f8f9fa; /* Light Background */
     }
 
     /* Global Styles */
@@ -33,274 +30,141 @@
       max-width: 1200px;
       margin: 40px auto;
       padding: 0 20px;
+      box-sizing: border-box; /* Add for consistency */
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.2em;
-      color: var(--text-color);
-    }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.2em; color: var(--text-color); }
+    header p { font-size: 1.2rem; margin-top: 0; }
+    h2 { font-size: 1.6em; margin-top: 1em; margin-bottom: 0.5em; border-bottom: 3px solid var(--secondary-color); padding-bottom: 0.2em; color: var(--primary-color); }
+    h3 { font-size: 1.2em; margin-top: 0.8em; margin-bottom: 0.3em; font-weight: bold; color: var(--primary-color); }
 
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0;
-    }
+    /* Skills Summary Specific H3 */
+    .skills-summary h3 { font-size: 1.1em; margin-top: 1em; margin-bottom: 0.5em; color: var(--primary-color); border-bottom: 1px solid var(--secondary-color); padding-bottom: 0.1em; font-weight: bold; }
+    .skills-summary ul { margin-top: 0.3em; padding-left: 20px; list-style-type: disc; margin-bottom: 1em; }
+    .skills-summary li { margin-bottom: 0.3em; line-height: 1.4; }
 
-    h2 {
-      font-size: 1.6em;
-      margin-top: 1em;
-      margin-bottom: 0.5em;
-      border-bottom: 3px solid var(--secondary-color);
-      padding-bottom: 0.2em;
-      color: var(--primary-color);
-    }
+    .contact-info { margin-bottom: 1em; font-size: 1em; color: #555; }
+    .contact-info a { text-decoration: none; color: var(--secondary-color); padding: 5px; border-radius: 3px; transition: background-color 0.2s; }
+    .contact-info a:hover { background-color: var(--light-bg); }
 
-    h3 {
-      font-size: 1.2em;
-      margin-top: 0.8em;
-      margin-bottom: 0.3em;
-      font-weight: bold;
-      color: var(--primary-color);
-    }
-     /* Style for Skill Categories */
-     .skills-summary h3 {
-        font-size: 1.1em; /* Slightly smaller than job titles */
-        margin-top: 1em;
-        margin-bottom: 0.5em;
-        color: var(--primary-color);
-        border-bottom: 1px solid var(--secondary-color); /* Lighter border */
-        padding-bottom: 0.1em;
-        font-weight: bold;
-      }
+    .section { margin-bottom: 2em; }
+    .experience-item { margin-bottom: 1.5em; }
+    .experience-item p.dates { font-style: italic; color: #666; margin-bottom: 0.5em; }
+    .experience-item ul { margin-top: 0.5em; padding-left: 25px; list-style-type: disc; }
+    .experience-item li { margin-bottom: 0.5em; line-height: 1.4; }
 
-      .skills-summary ul {
-        margin-top: 0.3em;
-        padding-left: 20px; /* Standard list indent */
-        list-style-type: disc; /* Or none if preferred */
-        margin-bottom: 1em; /* Space between categories */
-      }
-
-       .skills-summary li {
-         margin-bottom: 0.3em; /* Space between skill items */
-         line-height: 1.4;
-       }
-
-
-    .contact-info {
-      margin-bottom: 1em;
-      font-size: 1em;
-      color: #555;
-    }
-
-    .contact-info a {
-      text-decoration: none;
-      color: var(--secondary-color);
-      padding: 5px;
-      border-radius: 3px;
-      transition: background-color 0.2s;
-    }
-
-    .contact-info a:hover {
-      background-color: var(--light-bg);
-    }
-
-    .section {
-      margin-bottom: 2em;
-    }
-
-    .experience-item {
-      margin-bottom: 1.5em;
-    }
-
-    .experience-item p.dates {
-      font-style: italic;
-      color: #666;
-      margin-bottom: 0.5em;
-    }
-
-    .experience-item ul {
-      margin-top: 0.5em;
-      padding-left: 25px;
-      list-style-type: disc;
-    }
-
-    .experience-item li {
-      margin-bottom: 0.5em;
-      line-height: 1.4;
-    }
-
-    /* Grid Layout */
+    /* --- Layout using FLEXBOX --- */
     .container {
-      display: grid;
-      grid-template-columns: 70% 30%;
-      grid-gap: 30px;
+      display: flex;
+      /* Removed grid-template-columns and grid-gap */
     }
 
-    /* Semantic Sections */
     main {
-      /* Main content styling (if needed) */
+      flex-basis: 70%; /* Define width for main content */
+      padding-right: 30px; /* Simulate gap */
+      box-sizing: border-box; /* Include padding in width */
     }
 
     aside.side-bar {
+      flex-basis: 30%; /* Define width for sidebar */
+      /* Keep existing sidebar styles */
       padding: 25px;
       background: var(--light-bg);
       box-shadow: 0 2px 15px rgba(0,0,0,0.05);
       border-radius: 8px;
+      box-sizing: border-box; /* Include padding in width */
     }
+    /* --- End Flexbox Layout --- */
 
-    aside.side-bar h2 {
-      font-size: 1.4em;
-      margin-bottom: 0.8em;
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--secondary-color);
-      padding-bottom: 0.2em;
-    }
+    aside.side-bar h2 { font-size: 1.4em; margin-bottom: 0.8em; color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 0.2em; }
+    aside.side-bar ul { list-style: none; padding-left: 0; }
+    aside.side-bar li { margin-bottom: 0.5em; line-height: 1.4; }
 
-    aside.side-bar ul {
-      list-style: none;
-      padding-left: 0;
-    }
+    .profile-picture { width: 120px; height: 120px; border-radius: 50%; display: block; margin: 0 auto 15px; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+    .skill-tag { background: var(--secondary-color); color: white; padding: 4px 12px; border-radius: 15px; font-size: 0.9em; }
+    .strength-item { margin-bottom: 1.2em; }
+    .strength-item b { color: var(--primary-color); display: block; margin-bottom: 4px; }
+    .language-progress p { margin-bottom: 0.5em; }
+    .language-progress progress { width: 100%; }
 
-    aside.side-bar li {
-      margin-bottom: 0.5em;
-      line-height: 1.4;
-    }
-
-    /* Profile Picture - now using an <img> for accessibility */
-    .profile-picture {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto 15px;
-      object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    /* Skill Tags */
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .skill-tag {
-      background: var(--secondary-color);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 15px;
-      font-size: 0.9em;
-    }
-
-    /* Strength Items */
-    .strength-item {
-      margin-bottom: 1.2em;
-    }
-
-    .strength-item b {
-      color: var(--primary-color);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    /* Language Progress */
-    .language-progress p {
-      margin-bottom: 0.5em;
-    }
-
-    .language-progress progress {
-      width: 100%;
-    }
-
-    /* Responsive Design */
+    /* Responsive Design (No changes needed here) */
     @media (max-width: 768px) {
       .container {
-        grid-template-columns: 1fr;
+        /* Change flex direction for mobile */
+        flex-direction: column;
+      }
+      main {
+          flex-basis: auto; /* Reset basis */
+          width: 100%;     /* Take full width */
+          padding-right: 0; /* Remove gap padding */
       }
       aside.side-bar {
-        width: 100%;
-        /* Optionally move sidebar to top or bottom on mobile */
-        grid-row-start: 1; /* Example: Move sidebar above main content */
-        margin-bottom: 2em;
+          flex-basis: auto; /* Reset basis */
+          width: 100%;     /* Take full width */
+          order: -1;       /* Move sidebar to top on mobile */
+          margin-bottom: 2em;
       }
-      .page-container {
-        margin: 20px auto;
-      }
+      .page-container { margin: 20px auto; }
     }
 
     /* Print Styles */
     @media print {
-      body {
-        font-size: 10pt; /* Adjusted for potentially more content */
-        color: #000;
-      }
-      .page-container {
-         max-width: 100%;
-         margin: 20px;
-         padding: 0;
-       }
-      h1, h2, h3 {
-        color: #000 !important;
-        border-bottom: none !important; /* Remove borders for print */
-        padding-bottom: 0;
-      }
-       h1 { font-size: 18pt; }
-       h2 { font-size: 14pt; }
-       h3 { font-size: 11pt; }
-       header p { font-size: 11pt; }
+      body { font-size: 10pt; color: #000; }
+      .page-container { max-width: 100%; margin: 10mm; padding: 0; box-sizing: border-box;} /* Use mm for print */
+      h1, h2, h3 { color: #000 !important; border-bottom: none !important; padding-bottom: 0; }
+      h1 { font-size: 18pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; } header p { font-size: 11pt; }
 
-      aside.side-bar {
-        display: none; /* Hide sidebar */
-      }
-      .container {
-         grid-template-columns: 1fr; /* Single column for print */
-         grid-gap: 15px;
-      }
+      /* --- Ensure Flexbox layout for Print --- */
+       .container {
+           display: flex !important;
+           width: 100%; /* Ensure container uses full available width within margins */
+       }
        main {
-         width: 100%; /* Ensure main content takes full width */
+           flex-basis: 70% !important;
+           padding-right: 10mm !important; /* Use mm for gap */
+           box-sizing: border-box !important;
+           float: none !important; /* Ensure no lingering floats */
+           page-break-inside: auto; /* Allow breaking */
        }
-      .contact-info a {
-        color: #000 !important;
-        text-decoration: none !important;
-        padding: 0 5px; /* Reduce padding */
-      }
-      .contact-info a[href^="tel"]:after {
-        content: " (" attr(href) ") "; /* Show phone number */
-      }
-      .contact-info a[href^="mailto"]:after {
-         content: " (" attr(href) ") "; /* Show email */
+       aside.side-bar {
+           flex-basis: 30% !important;
+           display: block !important; /* Make sure it's visible */
+           padding: 15px !important; /* Adjust padding for print if needed */
+           background: var(--light-bg) !important; /* Force background */
+           box-shadow: none !important;
+           border-radius: 0 !important;
+           box-sizing: border-box !important;
+           float: none !important; /* Ensure no lingering floats */
+           page-break-inside: avoid; /* Try to keep sidebar on one page */
        }
-       .contact-info a[href^="https"]:after {
-        content: none; /* Don't show full URL for github in print usually */
-       }
-       .experience-item {
-         page-break-inside: avoid; /* Try to keep jobs together */
-         margin-bottom: 1em;
-       }
-       .experience-item p.dates {
-         font-style: normal;
-         color: #333; /* Slightly lighter than black */
-         margin-bottom: 0.3em;
-       }
-        .experience-item ul, .skills-summary ul {
-          padding-left: 15px; /* Reduce indent */
-        }
-        .experience-item li, .skills-summary li {
-          margin-bottom: 0.3em;
-        }
-       .section {
-         margin-bottom: 1.5em;
-       }
+       /* --- End Flexbox Print --- */
+
+       /* Hide screen-only elements if any */
+       /* .some-screen-only-element { display: none !important; } */
+
+       /* Adjust spacing for print */
+       .section { margin-bottom: 1em; }
+       .experience-item { margin-bottom: 0.8em; page-break-inside: avoid; }
+       .experience-item ul, .skills-summary ul { padding-left: 15px; }
+       .experience-item li, .skills-summary li { margin-bottom: 0.3em; }
+
+       /* Link display for print */
+       .contact-info a { color: #000 !important; text-decoration: none !important; padding: 0 5px; }
+       .contact-info a[href^="tel"]:after { content: " (" attr(href) ") "; }
+       .contact-info a[href^="mailto"]:after { content: " (" attr(href) ") "; }
+       .contact-info a[href^="https"]:after { content: none; } /* Hide full github URL */
+
+       /* Image print style */
+       .profile-picture { box-shadow: none !important; }
     }
   </style>
 </head>
 <body>
+  <!-- Your existing body content remains exactly the same -->
   <div class="page-container">
     <header>
       <h1>Nikolay Dimitrov</h1>
-      <!-- Updated Job Title -->
       <p>Automotive Systems Engineer</p>
       <div class="contact-info">
         <a href="tel:+359-88-76-76-545">📱 +359-88-76-76-545</a>
@@ -314,11 +178,9 @@
       <main>
         <section class="section">
           <h2>Summary</h2>
-          <!-- Updated Summary -->
           <p>Dynamic and seasoned <strong>Automotive Systems Engineer</strong> with over 8 years of experience, specializing in <strong>system architecture, specification, and embedded software development</strong> within the automotive industry. Proven track record designing and developing efficient, robust, and safety-critical systems using <strong>AUTOSAR methodology</strong>. Deep understanding of <strong>system architecture principles</strong>, requirements analysis, microcontroller programming, and system integration, gained from successfully leading complex projects (including <strong>ASIL-D/B</strong>) in fast-paced environments. Familiarity with automotive standards like <strong>ASPICE</strong>. Passionate about innovative technology solutions for <strong>digital cockpits and electrification</strong>. Committed to driving system-level solutions and maintaining high quality standards.</p>
         </section>
 
-        <!-- Added Skills Summary Section -->
         <section class="section skills-summary">
           <h2>Skills Summary</h2>
           <h3>System Design & Architecture</h3>
@@ -361,176 +223,106 @@
 
         <section class="section">
           <h2>Professional Experience</h2>
-
-          <div class="experience-item">
-            <h3>Sensified</h3>
-            <p class="dates">02/2022 – Present, Bulgaria, Sofia</p>
-            <p>At Sensified, we form a dynamic and highly professional team committed to embedded engineering consultancy. As a consultant, I thrive on adapting to diverse client requirements and consistently delivering results within tight deadlines. Currently, I am deeply engaged in two ASIL projects at Sensified: one categorized as ASIL-D and the other as ASIL-B, focusing on system safety and architecture.</p> <!-- Slightly adjusted emphasis -->
-          </div>
-
-          <!-- === UPDATED CONTINENTAL ROLE START === -->
-          <div class="experience-item">
-            <!-- Updated Title -->
-            <h3>System Engineer - External consultant (Sensified), Continental</h3>
-            <p class="dates">02/2022 – 11/2024, Germany, Ulm</p>
-            <!-- Updated Intro Paragraph -->
-            <p>Integral member of the Advanced Driver Assistance Systems (ADAS) division, focused on <strong>System Architecture and Specification</strong> for safety-critical components, including autopilot and parking assistance functionalities (ASIL D/B).</p>
-            <!-- Updated Bullet Points -->
-            <ul>
-                <li><strong>Analyzed customer specifications</strong> and performance requirements to define system-level design expectations for complex ADAS features.</li>
-                <li>Developed <strong>System Architecture</strong>, detailed <strong>System Specifications</strong>, and <strong>Technical Concepts</strong> for the safety core functionalities deployed on a complex multi-core microcontroller.</li>
-                <li><strong>Led technical clarifications</strong> and defined solutions through collaboration with cross-functional engineering teams (Software, Hardware) and the Customer, ensuring alignment on system design and integration.</li>
-                <li>Defined the <strong>Systems Integration strategy</strong> for the multi-core safety platform, including boot-up, shutdown, and inter-core communication approaches.</li>
-                <li>Specified robust ECU boot-up and shutdown behaviors within the <strong>system architecture</strong>, leveraging AUTOSAR methodologies (BswM, EcuM) and ensuring correct component configuration from HSM to Application Software.</li>
-                <li>Architected and specified system-level <strong>Inter-Process Communication (IPC)</strong> mechanisms (shared memory, message queues, RPC) based on analysis of inter-core communication requirements.</li>
-                <li>Specified <strong>synchronization strategies</strong> (semaphores, mutexes, spinlocks) as part of the system design to safeguard shared resources and ensure system stability in concurrent multi-core environments.</li>
-                <li>Defined <strong>partitioning strategies</strong> (spatial and temporal) within the system architecture to isolate critical functions, directly addressing system safety (ASIL) and security requirements.</li>
-                <li>Conducted <strong>system-level timing analyses</strong> and specified scheduling strategies to ensure the system met deterministic real-time performance targets.</li>
-                <li>Supported system integration and validation phases by performing <strong>analysis</strong> of multi-core behavior and driving <strong>problem-solving</strong> for complex system-level issues.</li>
-                <li>*(Optional - Verify Accuracy)* Contributed to <strong>System DFMEA</strong> activities related to the safety core functionalities.</li>
-                <li>*(Optional - Verify Accuracy)* Utilized <strong>requirements management</strong> (IBM Doors) and <strong>architecture design tools</strong> (IBM Rhapsody) during the system definition phase.</li>
-            </ul>
-          </div>
-          <!-- === UPDATED CONTINENTAL ROLE END === -->
-
-          <!-- === COMBINED BHTC INTERNAL ROLE START === -->
-          <div class="experience-item">
-            <h3>Software Engineer - Internal Employee, BHTC</h3>
-            <!-- Combined Dates -->
-            <p class="dates">02/2017 – 02/2022, Bulgaria, Sofia</p>
-            <!-- Synthesized Introduction -->
-            <p>Key contributor within the AUTOSAR and SW-PP divisions, developing and integrating standard software components for multiple projects. Focused on basic software development, project initiation according to BHTC-specific requirements, and configuration based on system/customer needs.</p>
-            <!-- Merged Bullet Points -->
-            <ul>
-              <li>Integrated, configured, and tested AUTOSAR, non-AUTOSAR, and third-party software modules according to customer requirements and hardware specifications.</li>
-              <li>Utilized key development tools including IBM Doors (requirements), IBM Rhapsody (design), Vector DaVinci Suite (Configurator/Developer), CANoe, and Candela.</li>
-              <li>Involved in the full project lifecycle, from initiation and component design through to testing and documentation across multiple projects.</li>
-              <li>Mentored new team members, fostering knowledge sharing and a collaborative environment.</li>
-              <li>Provided cross-functional support to colleagues across global BHTC locations, aiding in component integration and system understanding.</li>
-            </ul>
-          </div>
-          <!-- === COMBINED BHTC INTERNAL ROLE END === -->
-
-          <div class="experience-item">
-            <h3>Junior Embedded Software Engineer, Ansisoft Ltd.</h3>
-            <p class="dates">01/2015 - 02/2017, Bulgaria, Sofia</p>
-            <p>Executed application development for the open-source electronic prototyping platform, Arduino.</p>
-            <ul>
-              <li>Worked with C programming on ARM Architecture.</li>
-              <li>Developed proof-of-concept applications using C#.</li>
-            </ul>
-          </div>
-
-          <div class="experience-item">
-            <h3>CEO and Co-founder, MMA Bulgaria</h3>
-            <p class="dates">2011 - 2015, Bulgaria</p>
-            <p>Founded mma.bg, a hub for Mixed Martial Arts enthusiasts providing news, event updates, training resources, and community engagement.</p>
-            <ul>
-              <li>Led strategic decision-making and managed a startup from inception to growth, overseeing operations, logistics, software development, and event management across multiple countries.</li>
-            </ul>
-          </div>
+            <div class="experience-item">
+                <h3>Sensified</h3>
+                <p class="dates">02/2022 – Present, Bulgaria, Sofia</p>
+                <p>At Sensified, we form a dynamic and highly professional team committed to embedded engineering consultancy. As a consultant, I thrive on adapting to diverse client requirements and consistently delivering results within tight deadlines. Currently, I am deeply engaged in two ASIL projects at Sensified: one categorized as ASIL-D and the other as ASIL-B, focusing on system safety and architecture.</p>
+            </div>
+            <div class="experience-item">
+                <h3>System Engineer - External consultant (Sensified), Continental</h3>
+                <p class="dates">02/2022 – 11/2024, Germany, Ulm</p>
+                <p>Integral member of the Advanced Driver Assistance Systems (ADAS) division, focused on <strong>System Architecture and Specification</strong> for safety-critical components, including autopilot and parking assistance functionalities (ASIL D/B).</p>
+                <ul>
+                    <li><strong>Analyzed customer specifications</strong> and performance requirements to define system-level design expectations for complex ADAS features.</li>
+                    <li>Developed <strong>System Architecture</strong>, detailed <strong>System Specifications</strong>, and <strong>Technical Concepts</strong> for the safety core functionalities deployed on a complex multi-core microcontroller.</li>
+                    <li><strong>Led technical clarifications</strong> and defined solutions through collaboration with cross-functional engineering teams (Software, Hardware) and the Customer, ensuring alignment on system design and integration.</li>
+                    <li>Defined the <strong>Systems Integration strategy</strong> for the multi-core safety platform, including boot-up, shutdown, and inter-core communication approaches.</li>
+                    <li>Specified robust ECU boot-up and shutdown behaviors within the <strong>system architecture</strong>, leveraging AUTOSAR methodologies (BswM, EcuM) and ensuring correct component configuration from HSM to Application Software.</li>
+                    <li>Architected and specified system-level <strong>Inter-Process Communication (IPC)</strong> mechanisms (shared memory, message queues, RPC) based on analysis of inter-core communication requirements.</li>
+                    <li>Specified <strong>synchronization strategies</strong> (semaphores, mutexes, spinlocks) as part of the system design to safeguard shared resources and ensure system stability in concurrent multi-core environments.</li>
+                    <li>Defined <strong>partitioning strategies</strong> (spatial and temporal) within the system architecture to isolate critical functions, directly addressing system safety (ASIL) and security requirements.</li>
+                    <li>Conducted <strong>system-level timing analyses</strong> and specified scheduling strategies to ensure the system met deterministic real-time performance targets.</li>
+                    <li>Supported system integration and validation phases by performing <strong>analysis</strong> of multi-core behavior and driving <strong>problem-solving</strong> for complex system-level issues.</li>
+                    <li>*(Optional - Verify Accuracy)* Contributed to <strong>System DFMEA</strong> activities related to the safety core functionalities.</li>
+                    <li>*(Optional - Verify Accuracy)* Utilized <strong>requirements management</strong> (IBM Doors) and <strong>architecture design tools</strong> (IBM Rhapsody) during the system definition phase.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Software Engineer - Internal Employee, BHTC</h3>
+                <p class="dates">02/2017 – 02/2022, Bulgaria, Sofia</p>
+                <p>Key contributor within the AUTOSAR and SW-PP divisions, developing and integrating standard software components for multiple projects. Focused on basic software development, project initiation according to BHTC-specific requirements, and configuration based on system/customer needs.</p>
+                <ul>
+                    <li>Integrated, configured, and tested AUTOSAR, non-AUTOSAR, and third-party software modules according to customer requirements and hardware specifications.</li>
+                    <li>Utilized key development tools including IBM Doors (requirements), IBM Rhapsody (design), Vector DaVinci Suite (Configurator/Developer), CANoe, and Candela.</li>
+                    <li>Involved in the full project lifecycle, from initiation and component design through to testing and documentation across multiple projects.</li>
+                    <li>Mentored new team members, fostering knowledge sharing and a collaborative environment.</li>
+                    <li>Provided cross-functional support to colleagues across global BHTC locations, aiding in component integration and system understanding.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Junior Embedded Software Engineer, Ansisoft Ltd.</h3>
+                <p class="dates">01/2015 - 02/2017, Bulgaria, Sofia</p>
+                <p>Executed application development for the open-source electronic prototyping platform, Arduino.</p>
+                <ul>
+                    <li>Worked with C programming on ARM Architecture.</li>
+                    <li>Developed proof-of-concept applications using C#.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>CEO and Co-founder, MMA Bulgaria</h3>
+                <p class="dates">2011 - 2015, Bulgaria</p>
+                <p>Founded mma.bg, a hub for Mixed Martial Arts enthusiasts providing news, event updates, training resources, and community engagement.</p>
+                <ul>
+                    <li>Led strategic decision-making and managed a startup from inception to growth, overseeing operations, logistics, software development, and event management across multiple countries.</li>
+                </ul>
+            </div>
         </section>
 
         <section class="section">
           <h2>Education</h2>
-          <div class="experience-item">
-            <h3>Attempted PhD in Computer Technology in Engineering</h3>
-            <p class="dates">2011 – Present, Bulgaria, Sofia</p>
-            <p>University of Mining and Geology</p>
-          </div>
-          <div class="experience-item">
-            <h3>Master Degree in Information Technology</h3>
-            <p class="dates">2010 – 2011, Bulgaria, Sofia</p>
-            <p>University of Mining and Geology</p>
-          </div>
-          <div class="experience-item">
-            <h3>Bachelor in Automation, Information and Computer Science</h3>
-            <p class="dates">2006 – 2009, Bulgaria, Sofia</p>
-            <p>University of Mining and Geology</p>
-          </div>
+           <div class="experience-item">
+                <h3>Attempted PhD in Computer Technology in Engineering</h3>
+                <p class="dates">2011 – Present, Bulgaria, Sofia</p>
+                <p>University of Mining and Geology</p>
+           </div>
+           <div class="experience-item">
+                <h3>Master Degree in Information Technology</h3>
+                <p class="dates">2010 – 2011, Bulgaria, Sofia</p>
+                <p>University of Mining and Geology</p>
+           </div>
+           <div class="experience-item">
+                <h3>Bachelor in Automation, Information and Computer Science</h3>
+                <p class="dates">2006 – 2009, Bulgaria, Sofia</p>
+                <p>University of Mining and Geology</p>
+           </div>
         </section>
       </main>
 
       <!-- Sidebar Area -->
       <aside class="side-bar">
-        <!-- Accessible Profile Picture -->
-        <!-- Make sure nikidimitrow.png is in the same folder or update path -->
         <img src="nikidimitrow.png" alt="Nikolay Dimitrov Profile Picture" class="profile-picture">
-
-        <!-- Adjusted Sidebar Sections for better flow -->
         <section class="strengths sidebar-section">
-            <h2>Key Attributes</h2> <!-- Renamed for broader scope -->
-             <div class="strength-item">
-               <b>Problem Solver</b> <!-- More professional term -->
-               <p>Analytical approach, experienced in complex system debugging.</p>
-             </div>
-             <div class="strength-item">
-               <b>Adaptable Consultant</b>
-               <p>Proven ability to meet diverse client needs and deadlines.</p>
-             </div>
-             <div class="strength-item">
-                <b>Collaborative</b>
-                <p>Experience working in cross-functional and international teams.</p>
-             </div>
-             <div class="strength-item">
-               <b>Leadership Potential</b> <!-- From Startup exp. -->
-               <p>Startup founding experience (MMA Bulgaria).</p>
-             </div>
-             <div class="strength-item">
-               <b>Lifelong Learner</b> <!-- From "autodidact" -->
-               <p>Continuously developing skills (e.g., PhD studies).</p>
-             </div>
-             <!-- BJJ might be less relevant for this specific role, consider removing or keeping brief -->
-             <!-- <div class="strength-item">
-               <b>Resilient Achiever</b>
-               <p>🏅 Gold Medalist (BJJ)</p>
-             </div> -->
-           </section>
-
-
+            <h2>Key Attributes</h2>
+             <div class="strength-item"><b>Problem Solver</b><p>Analytical approach, experienced in complex system debugging.</p></div>
+             <div class="strength-item"><b>Adaptable Consultant</b><p>Proven ability to meet diverse client needs and deadlines.</p></div>
+             <div class="strength-item"><b>Collaborative</b><p>Experience working in cross-functional and international teams.</p></div>
+             <div class="strength-item"><b>Leadership Potential</b><p>Startup founding experience (MMA Bulgaria).</p></div>
+             <div class="strength-item"><b>Lifelong Learner</b><p>Continuously developing skills (e.g., PhD studies).</p></div>
+        </section>
         <section class="skills sidebar-section">
-          <h2>Technical Highlights</h2> <!-- Renamed for focus -->
-          <!-- Updated Skill Tags -->
+          <h2>Technical Highlights</h2>
           <ul class="skill-tags">
-            <li class="skill-tag">C/C++</li>
-            <li class="skill-tag">AUTOSAR</li>
-            <li class="skill-tag">System Arch.</li> <!-- Added -->
-            <li class="skill-tag">Func. Safety</li> <!-- Added -->
-            <li class="skill-tag">ASIL</li> <!-- Added -->
-            <li class="skill-tag">ARM Arch.</li>
-            <li class="skill-tag">Multi-Core</li> <!-- Added -->
-            <li class="skill-tag">CAN</li> <!-- Keep CAN simple -->
-            <li class="skill-tag">IPC</li> <!-- Added -->
-            <li class="skill-tag">Doors</li> <!-- Added -->
-            <li class="skill-tag">Rhapsody</li> <!-- Added -->
-            <li class="skill-tag">CMake</li>
-            <li class="skill-tag">CANoe</li>
+            <li class="skill-tag">C/C++</li><li class="skill-tag">AUTOSAR</li><li class="skill-tag">System Arch.</li><li class="skill-tag">Func. Safety</li><li class="skill-tag">ASIL</li><li class="skill-tag">ARM Arch.</li><li class="skill-tag">Multi-Core</li><li class="skill-tag">CAN</li><li class="skill-tag">IPC</li><li class="skill-tag">Doors</li><li class="skill-tag">Rhapsody</li><li class="skill-tag">CMake</li><li class="skill-tag">CANoe</li>
           </ul>
         </section>
-
         <section class="languages sidebar-section">
           <h2>Languages</h2>
-          <div class="language-progress">
-             <!-- Simplified display, progress bar might be overkill -->
-            <p><strong>English:</strong> Fluent</p>
-            <p><strong>Bulgarian:</strong> Native</p>
-          </div>
+          <div class="language-progress"><p><strong>English:</strong> Fluent</p><p><strong>Bulgarian:</strong> Native</p></div>
         </section>
-
-        <!-- Combined Industry/Electronics into one -->
          <section class="domain-knowledge sidebar-section">
            <h2>Domain Knowledge</h2>
-           <ul>
-             <li>Automotive Embedded Systems</li>
-             <li>ADAS Concepts</li>
-             <li>ECU Development Lifecycle</li>
-             <li>Electrical/Electronic Principles</li>
-             <li>Technical Documentation</li>
-           </ul>
+           <ul><li>Automotive Embedded Systems</li><li>ADAS Concepts</li><li>ECU Development Lifecycle</li><li>Electrical/Electronic Principles</li><li>Technical Documentation</li></ul>
          </section>
-
-          <!-- Removed "Most Proud Of" - incorporated into Strengths/Attributes -->
-
       </aside>
     </div>
   </div>
