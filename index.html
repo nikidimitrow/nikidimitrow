@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- SEO & Accessibility Improvements -->
-  <meta name="description" content="Nikolay Dimitrov - Dedicated Embedded Software Developer with over 8 years of experience in the automotive software industry.">
+  <meta name="description" content="Nikolay Dimitrov - Automotive Systems Engineer specializing in system architecture, specification, and embedded software development using AUTOSAR.">
   <meta name="author" content="Nikolay Dimitrov">
-  <title>Nikolay Dimitrov - Web Developer CV</title>
+  <!-- Updated Title -->
+  <title>Nikolay Dimitrov - Automotive Systems Engineer CV</title>
   <!-- Google Fonts for improved typography -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -61,6 +62,29 @@
       font-weight: bold;
       color: var(--primary-color);
     }
+     /* Style for Skill Categories */
+     .skills-summary h3 {
+        font-size: 1.1em; /* Slightly smaller than job titles */
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        color: var(--primary-color);
+        border-bottom: 1px solid var(--secondary-color); /* Lighter border */
+        padding-bottom: 0.1em;
+        font-weight: bold;
+      }
+
+      .skills-summary ul {
+        margin-top: 0.3em;
+        padding-left: 20px; /* Standard list indent */
+        list-style-type: disc; /* Or none if preferred */
+        margin-bottom: 1em; /* Space between categories */
+      }
+
+       .skills-summary li {
+         margin-bottom: 0.3em; /* Space between skill items */
+         line-height: 1.4;
+       }
+
 
     .contact-info {
       margin-bottom: 1em;
@@ -197,6 +221,9 @@
       }
       aside.side-bar {
         width: 100%;
+        /* Optionally move sidebar to top or bottom on mobile */
+        grid-row-start: 1; /* Example: Move sidebar above main content */
+        margin-bottom: 2em;
       }
       .page-container {
         margin: 20px auto;
@@ -206,30 +233,66 @@
     /* Print Styles */
     @media print {
       body {
-        font-size: 12pt;
+        font-size: 10pt; /* Adjusted for potentially more content */
         color: #000;
       }
+      .page-container {
+         max-width: 100%;
+         margin: 20px;
+         padding: 0;
+       }
       h1, h2, h3 {
         color: #000 !important;
+        border-bottom: none !important; /* Remove borders for print */
+        padding-bottom: 0;
       }
+       h1 { font-size: 18pt; }
+       h2 { font-size: 14pt; }
+       h3 { font-size: 11pt; }
+       header p { font-size: 11pt; }
+
       aside.side-bar {
-        display: none;
+        display: none; /* Hide sidebar */
       }
-      a {
+      .container {
+         grid-template-columns: 1fr; /* Single column for print */
+         grid-gap: 15px;
+      }
+       main {
+         width: 100%; /* Ensure main content takes full width */
+       }
+      .contact-info a {
         color: #000 !important;
         text-decoration: none !important;
+        padding: 0 5px; /* Reduce padding */
       }
-      a[href]:after {
-        content: " (" attr(href) ") ";
+      .contact-info a[href^="tel"]:after {
+        content: " (" attr(href) ") "; /* Show phone number */
       }
-      .experience-item {
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 10px;
-      }
-      .experience-item p.dates {
-        font-style: normal;
-        color: #000;
-      }
+      .contact-info a[href^="mailto"]:after {
+         content: " (" attr(href) ") "; /* Show email */
+       }
+       .contact-info a[href^="https"]:after {
+        content: none; /* Don't show full URL for github in print usually */
+       }
+       .experience-item {
+         page-break-inside: avoid; /* Try to keep jobs together */
+         margin-bottom: 1em;
+       }
+       .experience-item p.dates {
+         font-style: normal;
+         color: #333; /* Slightly lighter than black */
+         margin-bottom: 0.3em;
+       }
+        .experience-item ul, .skills-summary ul {
+          padding-left: 15px; /* Reduce indent */
+        }
+        .experience-item li, .skills-summary li {
+          margin-bottom: 0.3em;
+        }
+       .section {
+         margin-bottom: 1.5em;
+       }
     }
   </style>
 </head>
@@ -237,7 +300,8 @@
   <div class="page-container">
     <header>
       <h1>Nikolay Dimitrov</h1>
-      <p>Dedicated Embedded Software Developer</p>
+      <!-- Updated Job Title -->
+      <p>Automotive Systems Engineer</p>
       <div class="contact-info">
         <a href="tel:+359-88-76-76-545">📱 +359-88-76-76-545</a>
         <a href="mailto:nikidimitrow@gmail.com">✉️ nikidimitrow@gmail.com</a>
@@ -250,7 +314,49 @@
       <main>
         <section class="section">
           <h2>Summary</h2>
-          <p>Dynamic and seasoned Embedded Software Developer with over 8 years of experience in the automotive software industry. Proven track record of developing efficient and robust systems using AUTOSAR methodology. Deep understanding of software architecture, microcontroller programming, and system testing, gained from successfully leading multiple projects in a fast-paced, deadline-driven environment. Passionate about innovative technology solutions and known for injecting a spirit of fun and enthusiasm into the workplace. Committed to driving continuous improvement while maintaining high quality standards. </p>
+          <!-- Updated Summary -->
+          <p>Dynamic and seasoned <strong>Automotive Systems Engineer</strong> with over 8 years of experience, specializing in <strong>system architecture, specification, and embedded software development</strong> within the automotive industry. Proven track record designing and developing efficient, robust, and safety-critical systems using <strong>AUTOSAR methodology</strong>. Deep understanding of <strong>system architecture principles</strong>, requirements analysis, microcontroller programming, and system integration, gained from successfully leading complex projects (including <strong>ASIL-D/B</strong>) in fast-paced environments. Familiarity with automotive standards like <strong>ASPICE</strong>. Passionate about innovative technology solutions for <strong>digital cockpits and electrification</strong>. Committed to driving system-level solutions and maintaining high quality standards.</p>
+        </section>
+
+        <!-- Added Skills Summary Section -->
+        <section class="section skills-summary">
+          <h2>Skills Summary</h2>
+          <h3>System Design & Architecture</h3>
+            <ul>
+              <li>System Architecture Design & Specification</li>
+              <li>Requirements Analysis & Management (IBM Doors)</li>
+              <li>System Integration Strategy & Planning</li>
+              <li>Functional Safety (ISO 26262, ASIL D/B Concepts)</li>
+              <li>DFMEA Principles (Conceptual Understanding)</li>
+              <li>Multi-core System Design (IPC, Sync, Partitioning)</li>
+              <li>Real-Time Systems Design & Timing Analysis</li>
+            </ul>
+          <h3>Automotive & Embedded</h3>
+            <ul>
+              <li>AUTOSAR Methodology (Classic Platform: BswM, EcuM, RTE, Configuration, Integration, .arxml)</li>
+              <li>Embedded C Programming</li>
+              <li>Microcontroller Programming (ARM Architecture)</li>
+              <li>ECU Boot-up & Shutdown Sequences</li>
+              <li>Advanced Driver Assistance Systems (ADAS Concepts)</li>
+            </ul>
+          <h3>Communication & Protocols</h3>
+            <ul>
+              <li>CAN Bus</li>
+              <li>Inter-Process Communication (IPC: Shared Memory, Message Queues, RPC)</li>
+              <li>End-to-End (E2E) Protection Concepts</li>
+            </ul>
+          <h3>Tools & Technologies</h3>
+            <ul>
+              <li>Vector Toolchain (DaVinci Configurator/Developer, CANoe, Candela)</li>
+              <li>Architecture/Requirements Tools (IBM Rhapsody, IBM Doors)</li>
+              <li>Build Systems (CMake, Jenkins)</li>
+              <li>Debugging Tools (Multi-core debugging experience)</li>
+            </ul>
+           <h3>Methodologies & Standards</h3>
+             <ul>
+               <li>ASPICE (Familiarity)</li>
+               <li>V-Model Development Process</li>
+             </ul>
         </section>
 
         <section class="section">
@@ -259,44 +365,55 @@
           <div class="experience-item">
             <h3>Sensified</h3>
             <p class="dates">02/2022 – Present, Bulgaria, Sofia</p>
-            <p>At Sensified, we form a dynamic and highly professional team committed to embedded engineering consultancy. As a consultant, I thrive on adapting to diverse client requirements and consistently delivering results within tight deadlines. Currently, I am deeply engaged in two ASIL projects at Sensified: one categorized as ASIL-D and the other as ASIL-B.</p>
+            <p>At Sensified, we form a dynamic and highly professional team committed to embedded engineering consultancy. As a consultant, I thrive on adapting to diverse client requirements and consistently delivering results within tight deadlines. Currently, I am deeply engaged in two ASIL projects at Sensified: one categorized as ASIL-D and the other as ASIL-B, focusing on system safety and architecture.</p> <!-- Slightly adjusted emphasis -->
           </div>
 
+          <!-- === UPDATED CONTINENTAL ROLE START === -->
           <div class="experience-item">
-            <h3>Lead Software Engineer - External consultant (Sensified), Continental</h3>
+            <!-- Updated Title -->
+            <h3>System Engineer - External consultant (Sensified), Continental</h3>
             <p class="dates">02/2022 – 11/2024, Germany, Ulm</p>
-            <p>Integral member of the Advanced Driver Assistance Systems (ADAS) division, entrusted with primary responsibility for the safety cores of autopilot and parking assistance functionalities, exemplifying strong commitment to vehicular safety and innovation.</p>
+            <!-- Updated Intro Paragraph -->
+            <p>Integral member of the Advanced Driver Assistance Systems (ADAS) division, focused on <strong>System Architecture and Specification</strong> for safety-critical components, including autopilot and parking assistance functionalities (ASIL D/B).</p>
+            <!-- Updated Bullet Points -->
             <ul>
-            <li>Successfully spearheaded the initialization and integration of one of the most complex microcontrollers in the automotive market.</li>
-            <li>Developed and delivered a software platform prototype instrumental for function development and client acquisition.</li>
-            <li>Heavily involved in the startup and shutdown sequences of the MCU (Microcontroller Unit).</li>
-            <li><strong>Drove robust ECU boot-up and shutdown processes</strong> using AUTOSAR methodologies by configuring and debugging critical components—from HSM and FBL to Application Software—leveraging specialized expertise in AUTOSAR modules BswM and EcuM.</li>
-            <li><strong>Advanced Inter-Process Communication (IPC):</strong> Configuration and implementation of robust IPC mechanisms—including shared memory, message queues, and remote procedure calls (RPC)—to facilitate seamless communication between cores.</li>
-            <li><strong>Robust Synchronization Strategies</strong>: Expertise in synchronization primitives (semaphores, mutexes, and spinlocks) to safeguard shared resources and eliminate race conditions in concurrent multi-core environments.</li>
-            <li><strong>Optimized Cache Coherency:</strong>Developed and implemented effective strategies to address cache coherency challenges, ensuring consistent data states and improved overall system performance across multiple cores.</li>
-            <li><strong>Strategic Partitioning for Enhanced Safety:</strong> Executed targeted partitioning strategies (both spatial and temporal) to isolate critical functions, thereby elevating system safety and security.</li>
-            <li><strong>Multi-Core Debugging:</strong> Utilized advanced debugging tools to perform simultaneous multi-core code analysis, enabling efficient identification and resolution of inter-core communication issues.</li>
-            <li><strong>Timing Analysis and Scheduling:</strong>  Conducted comprehensive timing analyses of diverse software components and engineered robust scheduling strategies to ensure optimal real-time performance and system determinism.
+                <li><strong>Analyzed customer specifications</strong> and performance requirements to define system-level design expectations for complex ADAS features.</li>
+                <li>Developed <strong>System Architecture</strong>, detailed <strong>System Specifications</strong>, and <strong>Technical Concepts</strong> for the safety core functionalities deployed on a complex multi-core microcontroller.</li>
+                <li><strong>Led technical clarifications</strong> and defined solutions through collaboration with cross-functional engineering teams (Software, Hardware) and the Customer, ensuring alignment on system design and integration.</li>
+                <li>Defined the <strong>Systems Integration strategy</strong> for the multi-core safety platform, including boot-up, shutdown, and inter-core communication approaches.</li>
+                <li>Specified robust ECU boot-up and shutdown behaviors within the <strong>system architecture</strong>, leveraging AUTOSAR methodologies (BswM, EcuM) and ensuring correct component configuration from HSM to Application Software.</li>
+                <li>Architected and specified system-level <strong>Inter-Process Communication (IPC)</strong> mechanisms (shared memory, message queues, RPC) based on analysis of inter-core communication requirements.</li>
+                <li>Specified <strong>synchronization strategies</strong> (semaphores, mutexes, spinlocks) as part of the system design to safeguard shared resources and ensure system stability in concurrent multi-core environments.</li>
+                <li>Defined <strong>partitioning strategies</strong> (spatial and temporal) within the system architecture to isolate critical functions, directly addressing system safety (ASIL) and security requirements.</li>
+                <li>Conducted <strong>system-level timing analyses</strong> and specified scheduling strategies to ensure the system met deterministic real-time performance targets.</li>
+                <li>Supported system integration and validation phases by performing <strong>analysis</strong> of multi-core behavior and driving <strong>problem-solving</strong> for complex system-level issues.</li>
+                <li>*(Optional - Verify Accuracy)* Contributed to <strong>System DFMEA</strong> activities related to the safety core functionalities.</li>
+                <li>*(Optional - Verify Accuracy)* Utilized <strong>requirements management</strong> (IBM Doors) and <strong>architecture design tools</strong> (IBM Rhapsody) during the system definition phase.</li>
             </ul>
           </div>
+          <!-- === UPDATED CONTINENTAL ROLE END === -->
+
           <div class="experience-item">
-            <h3>Software Engineer - External consultant (Sensified), BHTC</h3>
+             <!-- Consider slightly reframing BHTC consultant role too -->
+            <h3>Software Engineer / Systems Contributor - External consultant (Sensified), BHTC</h3> <!-- Example title adjustment -->
             <p class="dates">10/2022 – 01/2025, Germany, Lippstadt</p>
-            <p>Served as a key member of the core team, undertaking primary responsibility for Functional Safety and End-to-End protection communication. Demonstrated expertise in the development and integration of project-specific components.</p>
+             <!-- Slightly adjusted intro -->
+            <p>Served as a key team member contributing to Functional Safety and End-to-End protection mechanisms. Involved in specification, development, and integration of project-specific components based on system requirements.</p>
             <ul>
-              <li>Developed and integrated a pioneering Functional Safety mechanism within an AUTOSAR project.</li>
-              <li>Integrated End-to-End protection components, ensuring adherence to system requirements.</li>
-              <li>Effectively managed high-pressure situations to consistently meet deadlines.</li>
-              <li>Provided proactive support within the team, showcasing adaptability and collaboration.</li>
+              <!-- Rephrased slightly -->
+              <li>Specified, developed, and integrated a pioneering Functional Safety mechanism within an AUTOSAR project architecture.</li>
+              <li>Integrated End-to-End protection components ensuring adherence to system communication requirements.</li>
+              <li>Effectively managed high-pressure situations to consistently meet deadlines for system deliverables.</li>
+              <li>Provided proactive support within the team, showcasing adaptability and collaboration on system-level tasks.</li>
             </ul>
           </div>
 
           <div class="experience-item">
             <h3>Software Engineer - Internal Employee, BHTC</h3>
             <p class="dates">05/2021 – 02/2022, Bulgaria, Sofia</p>
-            <p>Contributed as a vital member of the AUTOSAR division's basic team, spearheading project initiation and developing standard components in line with BHTC-specific requirements.</p>
+            <p>Contributed as a vital member of the AUTOSAR division's basic software team, involved in project initiation and developing standard components aligned with BHTC-specific requirements.</p> <!-- Kept focus on SW here -->
             <ul>
-              <li>Initiated and executed multiple projects from design to testing and documentation.</li>
+              <li>Initiated and executed multiple projects from component design through to testing and documentation.</li>
               <li>Mentored new team members, fostering a collaborative work environment.</li>
             </ul>
           </div>
@@ -304,22 +421,24 @@
           <div class="experience-item">
             <h3>Software Engineer - Internal Employee, Hitachi</h3>
             <p class="dates">09/2021 - 05/2022, Bulgaria, Sofia</p>
-            <p>Collaborated with Magna customers to establish the initial framework platform of the gearbox using AUTOSAR methodology.</p>
+             <!-- Slightly adjusted phrasing -->
+            <p>Collaborated with Magna customers to define and establish the initial framework platform architecture for the gearbox using AUTOSAR methodology.</p>
             <ul>
-              <li>Established the initial build environment using CMake and Jenkins.</li>
-              <li>Integrated the Basic stack for an AUTOSAR project.</li>
-              <li>Supported integration of AUTOSAR-generated components (.arxml) with Matlab.</li>
+              <li>Established the initial build environment using CMake and Jenkins for the system platform.</li>
+              <li>Integrated the Basic Software (BSW) stack for an AUTOSAR project as part of the platform setup.</li>
+              <li>Supported integration of AUTOSAR-generated components (.arxml) with Matlab models, bridging system design and implementation.</li>
             </ul>
           </div>
 
           <div class="experience-item">
             <h3>Software Engineer - Internal Employee, BHTC</h3>
             <p class="dates">02/2017 - 09/2021, Bulgaria, Sofia</p>
-            <p>Key contributor in developing standard components for the SW-PP division, supporting multiple projects across various domains.</p>
+            <p>Key contributor in developing standard software components for the SW-PP division, supporting multiple projects based on system and customer requirements.</p>
             <ul>
-              <li>Integrated, configured, and tested AUTOSAR, non-AUTOSAR, and third-party modules per customer and hardware requirements.</li>
-              <li>Utilized tools such as IBM Doors, IBM Rhapsody, and Vector’s DaVinci Configurator, DaVinci Developer, CANoe, and Candela.</li>
-              <li>Provided cross-functional support to colleagues across global BHTC locations.</li>
+               <!-- Adjusted phrasing -->
+              <li>Integrated, configured, and tested AUTOSAR, non-AUTOSAR, and third-party software modules according to customer requirements and hardware specifications.</li>
+              <li>Utilized tools such as IBM Doors (requirements), IBM Rhapsody (design), and Vector’s DaVinci Configurator/Developer, CANoe, and Candela (configuration/testing).</li>
+              <li>Provided cross-functional support to colleagues across global BHTC locations, assisting with component integration and system understanding.</li>
             </ul>
           </div>
 
@@ -329,7 +448,7 @@
             <p>Executed application development for the open-source electronic prototyping platform, Arduino.</p>
             <ul>
               <li>Worked with C programming on ARM Architecture.</li>
-              <li>Developed applications using C#.</li>
+              <li>Developed proof-of-concept applications using C#.</li>
             </ul>
           </div>
 
@@ -366,59 +485,83 @@
       <!-- Sidebar Area -->
       <aside class="side-bar">
         <!-- Accessible Profile Picture -->
+        <!-- Make sure nikidimitrow.png is in the same folder or update path -->
         <img src="nikidimitrow.png" alt="Nikolay Dimitrov Profile Picture" class="profile-picture">
-      
-      <section class="most-proud-of sidebar-section">
-          <h2>Most Proud Of</h2>
-          <ul>
-          <li><i class="fas fa-rocket"></i> Establishing and managing a startup, growing an 8-person team from scratch</li>
-          <li><i class="fas fa-lightbulb"></i> Being a lifelong autodidact</li>
-          </ul>
-      </section>
 
-    
+        <!-- Adjusted Sidebar Sections for better flow -->
+        <section class="strengths sidebar-section">
+            <h2>Key Attributes</h2> <!-- Renamed for broader scope -->
+             <div class="strength-item">
+               <b>Problem Solver</b> <!-- More professional term -->
+               <p>Analytical approach, experienced in complex system debugging.</p>
+             </div>
+             <div class="strength-item">
+               <b>Adaptable Consultant</b>
+               <p>Proven ability to meet diverse client needs and deadlines.</p>
+             </div>
+             <div class="strength-item">
+                <b>Collaborative</b>
+                <p>Experience working in cross-functional and international teams.</p>
+             </div>
+             <div class="strength-item">
+               <b>Leadership Potential</b> <!-- From Startup exp. -->
+               <p>Startup founding experience (MMA Bulgaria).</p>
+             </div>
+             <div class="strength-item">
+               <b>Lifelong Learner</b> <!-- From "autodidact" -->
+               <p>Continuously developing skills (e.g., PhD studies).</p>
+             </div>
+             <!-- BJJ might be less relevant for this specific role, consider removing or keeping brief -->
+             <!-- <div class="strength-item">
+               <b>Resilient Achiever</b>
+               <p>🏅 Gold Medalist (BJJ)</p>
+             </div> -->
+           </section>
+
 
         <section class="skills sidebar-section">
-          <h2>Technical Skills</h2>
+          <h2>Technical Highlights</h2> <!-- Renamed for focus -->
+          <!-- Updated Skill Tags -->
           <ul class="skill-tags">
             <li class="skill-tag">C/C++</li>
             <li class="skill-tag">AUTOSAR</li>
-            <li class="skill-tag">ARM Architecture</li>
+            <li class="skill-tag">System Arch.</li> <!-- Added -->
+            <li class="skill-tag">Func. Safety</li> <!-- Added -->
+            <li class="skill-tag">ASIL</li> <!-- Added -->
+            <li class="skill-tag">ARM Arch.</li>
+            <li class="skill-tag">Multi-Core</li> <!-- Added -->
+            <li class="skill-tag">CAN</li> <!-- Keep CAN simple -->
+            <li class="skill-tag">IPC</li> <!-- Added -->
+            <li class="skill-tag">Doors</li> <!-- Added -->
+            <li class="skill-tag">Rhapsody</li> <!-- Added -->
             <li class="skill-tag">CMake</li>
-            <li class="skill-tag">Jenkins</li>
             <li class="skill-tag">CANoe</li>
-            <!-- Additional skills can be added here -->
           </ul>
-        </section>
-
-        <section class="strengths sidebar-section">
-          <h2>Strengths</h2>
-          <div class="strength-item">
-            <b>🏅 Gold Medalist (BJJ)</b>
-            <p>2011-2013 National Championships</p>
-          </div>
-          <div class="strength-item">
-            <b>🚀 Startup Founder</b>
-            <p>Built an 8-person team from scratch</p>
-          </div>
         </section>
 
         <section class="languages sidebar-section">
           <h2>Languages</h2>
           <div class="language-progress">
-            <p>English 🇬🇧 <progress value="95" max="100"></progress></p>
-            <p>Bulgarian 🇧🇬 <progress value="100" max="100"></progress></p>
+             <!-- Simplified display, progress bar might be overkill -->
+            <p><strong>English:</strong> Fluent</p>
+            <p><strong>Bulgarian:</strong> Native</p>
           </div>
         </section>
 
-        <section class="industry-expertise sidebar-section">
-          <h2>Industry Expertise</h2>
-          <ul>
-            <li>Electrical and Electronic Measurements</li>
-            <li>Technical Documentation</li>
-            <li>Hands-on Electronics Experience</li>
-          </ul>
-        </section>
+        <!-- Combined Industry/Electronics into one -->
+         <section class="domain-knowledge sidebar-section">
+           <h2>Domain Knowledge</h2>
+           <ul>
+             <li>Automotive Embedded Systems</li>
+             <li>ADAS Concepts</li>
+             <li>ECU Development Lifecycle</li>
+             <li>Electrical/Electronic Principles</li>
+             <li>Technical Documentation</li>
+           </ul>
+         </section>
+
+          <!-- Removed "Most Proud Of" - incorporated into Strengths/Attributes -->
+
       </aside>
     </div>
   </div>
