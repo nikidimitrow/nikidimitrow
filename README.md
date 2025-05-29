@@ -45,17 +45,25 @@
 
 ---
 
-## 🔧 Technologies & Methodologies
+## 🔧 Technologies, Tools & Programming
 
-While my core is system-level, I'm familiar with the ecosystem that includes:
+I leverage a range of technologies, engineering tools, and programming languages to bring automotive systems to life:
 
 <p align="center">
-  <img src="https://img.shields.io/badge/AUTOSAR-Standard%20Software%20Architecture-darkblue?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCI+PHBhdGggZD0iTTEyIDJDNi40OCA चेनIDIgNi40OCAyIDEycy40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6bS0xLTUtMXYyaDJ2LTJoLTF6bTEtNGgtMXYyaDJ2LTJoLTF6Ii8+PC9zdmc+" alt="AUTOSAR"/> 
-  <img src="https://img.shields.io/badge/POSIX-Portable%20OS%20Interface-lightgrey?style=for-the-badge&logo=linux" alt="POSIX"/> 
+  <img src="https://img.shields.io/badge/AUTOSAR-Software%20Architecture-darkblue?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCI+PHBhdGggZD0iTTEyIDJDNi40OCA चेनIDIgNi40OCAyIDEycy40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6bS0xLTUtMXYyaDJ2LTJoLTF6bTEtNGgtMXYyaDJ2LTJoLTF6Ii8+PC9zdmc+" alt="AUTOSAR"/> 
+  <img src="https://img.shields.io/badge/POSIX-OS%20Interface-lightgrey?style=for-the-badge&logo=linux" alt="POSIX"/> 
   <img src="https://img.shields.io/badge/ASIL%20D/B-Safety%20Integrity-red?style=for-the-badge&logo=firebase" alt="ASIL D/B"/> 
   <img src="https://img.shields.io/badge/ASPICE-Process%20Improvement-yellowgreen?style=for-the-badge&logo=probot" alt="ASPICE"/> 
-  <img src="https://img.shields.io/badge/System%20Specification-Docs%20as%20Code-9cf?style=for-the-badge&logo=readthedocs" alt="System Specification"/> 
   <img src="https://img.shields.io/badge/Multi--Core-Embedded-orange?style=for-the-badge&logo=microchip" alt="Multi-Core Embedded"/>
+  <br/>
+  <img src="https://img.shields.io/badge/MatLab-Simulink-orange?style=for-the-badge&logo=mathworks" alt="MatLab"/> 
+  <img src="https://img.shields.io/badge/SolidWorks-3D%20CAD-blue?style=for-the-badge&logo=solidworks" alt="SolidWorks"/> 
+  <img src="https://img.shields.io/badge/Altium%20Designer-PCB%20Design-A5915F?style=for-the-badge&logo=altiumdesigner" alt="Altium Designer"/> 
+  <br/>
+  <img src="https://img.shields.io/badge/C-Programming-A8B9CC?style=for-the-badge&logo=c" alt="C Programming"/> 
+  <img src="https://img.shields.io/badge/C++-Programming-00599C?style=for-the-badge&logo=cplusplus" alt="C++ Programming"/> 
+  <img src="https://img.shields.io/badge/Python-Scripting%20&%20Automation-3776AB?style=for-the-badge&logo=python" alt="Python"/> 
+  <img src="https://img.shields.io/badge/System%20Specification-Docs%20as%20Code-9cf?style=for-the-badge&logo=readthedocs" alt="System Specification"/>
 </p>
 
 ---
@@ -83,6 +91,7 @@ While my core is system-level, I'm familiar with the ecosystem that includes:
   <a href="mailto:[nikidimitrow@gmail.com]">
     <img src="https://img.shields.io/badge/Email-Contact%20Me-D14836?style=for-the-badge&logo=gmail" alt="Email Me"/>
   </a>
+  <!-- You can add other professional links here if you have them (e.g., a personal portfolio website) -->
 </p>
 
 ---
