@@ -80,13 +80,9 @@ While my core is system-level, I'm familiar with the ecosystem that includes:
 <p align="center">
   I'm always open to discussing new challenges, collaborations, or just chatting about the future of automotive tech!
   <br/><br/>
-  <a href="[YOUR_LINKEDIN_PROFILE_URL_HERE]" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-Nikolay%20Dimitrov-0077B5?style=for-the-badge&logo=linkedin" alt="LinkedIn Profile"/>
-  </a> 
-  <a href="mailto:[YOUR_EMAIL_ADDRESS_HERE]">
+  <a href="mailto:[nikidimitrow@gmail.com]">
     <img src="https://img.shields.io/badge/Email-Contact%20Me-D14836?style=for-the-badge&logo=gmail" alt="Email Me"/>
   </a>
-  <!-- You can add other links like a personal website or X (Twitter) profile -->
 </p>
 
 ---
