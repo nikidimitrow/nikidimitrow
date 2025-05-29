@@ -13,9 +13,7 @@
 
       
 <p align="center">
-  I specialize in <strong>System Specification</strong> for safety-critical (<strong>ASIL D/B</strong>) <strong>AUTOSAR</strong> and <strong>POSIX</strong> based systems. This specialization is complemented by my professional proficiency with essential engineering tools such as <strong>MatLab</strong>, <strong>Robot Operating System (ROS) </strong>, <strong>SolidWorks</strong>, <strong>Altium Designer</strong>, and <strong>AutoCAD</strong>, alongside practical experience in <strong>C</strong>, <strong>C++</strong>, and <strong>Python</strong>. <br/>
-  My passion lies in translating complex customer visions into elegant, reliable technical solutions, ensuring the highest safety standards in the automotive domain.
-</p>
+I specialize in <strong>System Specification</strong> for safety-critical (<strong>ASIL D/B</strong>) <strong>AUTOSAR</strong> and <strong>POSIX</strong> based systems. This specialization is complemented by my professional proficiency with essential engineering tools such as <strong>MatLab</strong>, <strong>Robot Operating System (ROS) </strong>, <strong>SolidWorks</strong>, <strong>Altium Designer</strong>, and <strong> AutoCAD</strong>, alongside practical experience in <strong>C</strong>, <strong>C++</strong>, and <strong>Python</strong>. 
 
 ---
 
@@ -34,17 +32,6 @@
 | ✨ **ASPICE Application**             | Applying ASPICE principles to ensure process quality and continuous improvement.                        | `ASPICE`     |
 
 </div>
-
----
-
-## 💡 What Drives Me
-
-*   **Designing for Safety:** Ensuring the utmost safety in every system I specify.
-*   **Bridging the Gap:** Translating high-level customer needs into concrete technical realities.
-*   **Robust Solutions:** Creating systems that are not just functional but also resilient and reliable.
-*   **Collaborative Innovation:** Working closely with diverse teams to achieve cutting-edge results.
-
----
 
 ## 🔧 Technologies, Tools & Programming
 
