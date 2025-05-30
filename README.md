@@ -13,7 +13,7 @@
 
       
 <p align="center">
-I specialize in <strong>System Specification</strong> for safety-critical (<strong>ASIL D/B</strong>) <strong>AUTOSAR</strong> and <strong>POSIX</strong> based systems. This specialization is complemented by my professional proficiency with essential engineering tools such as <strong>MatLab</strong>, <strong>Robot Operating System (ROS) </strong>, <strong>SolidWorks</strong>, <strong>Altium Designer</strong>, and <strong> AutoCAD</strong>, alongside practical experience in <strong>C</strong>, <strong>C++</strong>, and <strong>Python</strong>. 
+I specialize in <strong>System Specification</strong> for safety-critical (<strong>ASIL D/B</strong>) <strong>AUTOSAR, RTOS</strong> and <strong>POSIX</strong> based systems. This specialization is complemented by my professional proficiency with essential engineering tools such as <strong>MatLab</strong>, <strong>Robot Operating System (ROS) </strong>, <strong>SolidWorks</strong>, <strong>Altium Designer</strong>, and <strong> AutoCAD</strong>, alongside practical experience in <strong>C</strong>, <strong>C++</strong>, and <strong>Python</strong>. 
 
 ---
 
